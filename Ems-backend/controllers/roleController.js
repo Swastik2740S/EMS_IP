@@ -18,6 +18,20 @@ exports.getAllRoles = async (req, res) => {
   }
 };
 
+exports.getRoleById = async (req, res) => {
+  try {
+    const role = await db.Role.findByPk(req.params.id);
+    if (role) {
+      res.json(role);
+    } else {
+      res.status(404).json({ error: 'Role not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
 exports.updateRole = async (req, res) => {
   try {
     const [updated] = await db.Role.update(req.body, {

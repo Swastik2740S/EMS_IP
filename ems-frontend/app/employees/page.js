@@ -99,17 +99,17 @@ export default function Employees() {
             ) : (
               employees.map(employee => (
                 <tr key={employee.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 text-blue-700 whitespace-nowrap">
                     {employee.firstName} {employee.lastName}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">{employee.phone}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 text-black whitespace-nowrap">{employee.phone}</td>
+                  <td className="px-6 py-4  text-black whitespace-nowrap">
                     {employee.Department?.name || '-'}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 text-black whitespace-nowrap">
                     {employee.Role?.title || '-'}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 text-black whitespace-nowrap">
                     <Link
                       href={`/employees/${employee.id}`}
                       className="text-indigo-600 hover:text-indigo-900 mr-4"

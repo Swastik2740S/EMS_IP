@@ -82,28 +82,28 @@ export default function Roles() {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Salary Grade</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">ID</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">Title</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">Description</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">Salary Grade</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {roles.length === 0 ? (
               <tr>
-                <td colSpan="5" className="px-6 py-4 text-center text-gray-500">
+                <td colSpan="5" className="px-6 py-4 text-center text-black">
                   No roles found. Create one to get started.
                 </td>
               </tr>
             ) : (
               roles.map(role => (
                 <tr key={role.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">{role.id}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{role.title}</td>
-                  <td className="px-6 py-4">{role.description}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{role.salaryGrade}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 text-blue-700 py-4 whitespace-nowrap">{role.id}</td>
+                  <td className="px-6 text-black py-4 whitespace-nowrap">{role.title}</td>
+                  <td className="px-6 text-black py-4">{role.description}</td>
+                  <td className="px-6 text-black py-4 whitespace-nowrap">{role.salaryGrade}</td>
+                  <td className="px-6 text-black py-4 whitespace-nowrap">
                     <Link
                       href={`/roles/${role.id}`}
                       className="text-indigo-600 hover:text-indigo-900 mr-4"

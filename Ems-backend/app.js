@@ -16,6 +16,10 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/employees', require('./routes/employee'));
 app.use('/api/departments', require('./routes/department'));
 app.use('/api/roles', require('./routes/role'));
+app.use('/api/attendance', require('./routes/attendance'));
+app.use('/api/leave', require('./routes/leave'));
+app.use('/api/salaries', require('./routes/salary'));
+
 
 // Database sync
 db.sequelize.sync().then(() => {

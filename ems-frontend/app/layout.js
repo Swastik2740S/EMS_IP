@@ -99,6 +99,26 @@ export default function RootLayout({ children }) {
                 </svg>
                 <span className={`ml-2 ${!sidebarOpen && 'hidden'}`}>Roles</span>
               </Link>
+              {/* ...existing sidebar nav code... */}
+<Link href="/attendance" className={`flex items-center py-2 px-4 ${pathname.startsWith('/attendance') ? 'bg-gray-700' : 'hover:bg-gray-700'}`}>
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10m-9 4h6m-7 4h8m-8 0a2 2 0 01-2-2V7a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-8z" />
+  </svg>
+  <span className={`ml-2 ${!sidebarOpen && 'hidden'}`}>Attendance</span>
+</Link>
+<Link href="/leave" className={`flex items-center py-2 px-4 ${pathname.startsWith('/leave') ? 'bg-gray-700' : 'hover:bg-gray-700'}`}>
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-5h6v5m-7-8h8a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V11a2 2 0 012-2zm2-4h4a2 2 0 012 2v2H7V7a2 2 0 012-2z" />
+  </svg>
+  <span className={`ml-2 ${!sidebarOpen && 'hidden'}`}>Leave</span>
+</Link>
+
+<Link href="/salaries" className={`flex items-center py-2 px-4 ${pathname.startsWith('/salaries') ? 'bg-gray-700' : 'hover:bg-gray-700'}`}>
+  {/* Add an icon if you like */}
+  <span className={`ml-2 ${!sidebarOpen && 'hidden'}`}>Salaries</span>
+</Link>
+
+
               
               <div className="px-4 mt-8 mb-4">
                 <p className={`text-gray-400 uppercase text-xs ${!sidebarOpen && 'hidden'}`}>User</p>
