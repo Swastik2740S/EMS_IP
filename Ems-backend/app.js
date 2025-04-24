@@ -19,6 +19,8 @@ app.use('/api/roles', require('./routes/role'));
 app.use('/api/attendance', require('./routes/attendance'));
 app.use('/api/leave', require('./routes/leave'));
 app.use('/api/salaries', require('./routes/salary'));
+app.use('/api/dashboard', require('./routes/dashboard'));
+
 
 
 // Database sync
