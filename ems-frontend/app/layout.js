@@ -141,7 +141,7 @@ export default function RootLayout({ children }) {
             <div className="bg-white shadow-sm">
               <div className="flex justify-between items-center p-4">
                 <div className="flex items-center">
-                  <h2 className="text-lg font-semibold">
+                  <h2 className="text-2xl text-black font-semibold">
                     {pathname === '/' ? 'Dashboard' : 
                      pathname.startsWith('/employees') ? 'Employee Management' :
                      pathname.startsWith('/departments') ? 'Department Management' :

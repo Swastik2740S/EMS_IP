@@ -92,9 +92,9 @@ export default function Attendance() {
           <thead className="bg-gray-50">
             <tr>
               {role !== 'employee' && <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Employee</th>}
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Check In</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Check Out</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Date</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Check In</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Check Out</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -108,13 +108,13 @@ export default function Attendance() {
               records.map(record => (
                 <tr key={record.id}>
                   {role !== 'employee' && (
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 whitespace-nowrap text-blue-700">
                       {record.Employee?.firstName} {record.Employee?.lastName}
                     </td>
                   )}
-                  <td className="px-6 py-4 whitespace-nowrap">{record.date}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{record.check_in || '-'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{record.check_out || '-'}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-black">{record.date}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-black">{record.check_in || '-'}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-black">{record.check_out || '-'}</td>
                 </tr>
               ))
             )}

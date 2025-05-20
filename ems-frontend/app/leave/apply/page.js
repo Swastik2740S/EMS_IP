@@ -57,7 +57,7 @@ export default function ApplyLeave() {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Type</label>
           <select name="type" value={form.type} onChange={handleChange}
-            className="shadow border rounded w-full py-2 px-3">
+            className="shadow border rounded w-full py-2 px-3 text-blue-700">
             <option value="vacation">Vacation</option>
             <option value="sick">Sick</option>
             <option value="personal">Personal</option>
@@ -66,17 +66,17 @@ export default function ApplyLeave() {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Start Date</label>
           <input type="date" name="start_date" value={form.start_date} onChange={handleChange}
-            className="shadow border rounded w-full py-2 px-3" required />
+            className="shadow border rounded w-full py-2 px-3 text-black" required />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">End Date</label>
           <input type="date" name="end_date" value={form.end_date} onChange={handleChange}
-            className="shadow border rounded w-full py-2 px-3" required />
+            className="shadow border rounded w-full py-2 px-3 text-black" required />
         </div>
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2">Reason</label>
           <textarea name="reason" value={form.reason} onChange={handleChange}
-            className="shadow border rounded w-full py-2 px-3" rows={3} />
+            className="shadow border rounded w-full py-2 px-3 text-black" rows={3} />
         </div>
         <button type="submit"
           className={`bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}

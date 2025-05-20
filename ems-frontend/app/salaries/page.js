@@ -67,21 +67,21 @@ export default function Salaries() {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Employee</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Effective From</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Effective To</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+              <th className="px-6 py-3 text-left text-xs  font-medium text-black uppercase">Employee</th>
+              <th className="px-6 py-3 text-left text-xs  font-medium text-black uppercase">Amount</th>
+              <th className="px-6 py-3 text-left text-xs  font-medium text-black uppercase">Effective From</th>
+              <th className="px-6 py-3 text-left text-xs  font-medium text-black uppercase">Effective To</th>
+              <th className="px-6 py-3 text-left text-xs  font-medium text-black uppercase">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {salaries.map(sal => (
               <tr key={sal.id}>
-                <td className="px-6 py-4 whitespace-nowrap">{sal.Employee?.firstName} {sal.Employee?.lastName}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{sal.amount}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{sal.effective_from}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{sal.effective_to || '-'}</td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                <td className="px-6 py-4 text-blue-700 whitespace-nowrap">{sal.Employee?.firstName} {sal.Employee?.lastName}</td>
+                <td className="px-6 py-4 text-black whitespace-nowrap">{sal.amount}</td>
+                <td className="px-6 py-4 text-black whitespace-nowrap">{sal.effective_from}</td>
+                <td className="px-6 py-4 text-black whitespace-nowrap">{sal.effective_to || '-'}</td>
+                <td className="px-6 py-4 text-black whitespace-nowrap">
                   <Link href={`/salaries/${sal.id}`} className="text-indigo-600 hover:text-indigo-900 mr-4">Edit</Link>
                   {(role === 'admin' || role === 'hr') && (
                     <button 

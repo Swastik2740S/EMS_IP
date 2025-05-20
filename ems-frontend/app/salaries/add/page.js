@@ -51,8 +51,8 @@ export default function AddSalary() {
       {error && <div className="text-red-600 mb-4">{error}</div>}
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Employee</label>
-          <select name="employee_id" value={form.employee_id} onChange={handleChange} className="w-full border rounded p-2" required>
+          <label className="block text-gray-700  text-sm font-bold mb-2">Employee</label>
+          <select name="employee_id" value={form.employee_id} onChange={handleChange} className="w-full border text-blue-700 text-black rounded p-2" required>
             <option value="">Select Employee</option>
             {employees.map(emp => (
               <option key={emp.id} value={emp.id}>{emp.firstName} {emp.lastName}</option>
@@ -60,16 +60,16 @@ export default function AddSalary() {
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Amount</label>
-          <input type="number" name="amount" value={form.amount} onChange={handleChange} className="w-full border rounded p-2" required />
+          <label className="block text-black text-sm font-bold mb-2">Amount</label>
+          <input type="number" name="amount" value={form.amount} onChange={handleChange} className="w-full border rounded p-2 text-black" required />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Effective From</label>
-          <input type="date" name="effective_from" value={form.effective_from} onChange={handleChange} className="w-full border rounded p-2" required />
+          <label className="block text-black text-sm font-bold mb-2">Effective From</label>
+          <input type="date" name="effective_from" value={form.effective_from} onChange={handleChange} className="w-full border rounded p-2 text-black" required />
         </div>
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Effective To</label>
-          <input type="date" name="effective_to" value={form.effective_to} onChange={handleChange} className="w-full border rounded p-2" />
+          <label className="block text-black text-sm font-bold mb-2">Effective To</label>
+          <input type="date" name="effective_to" value={form.effective_to} onChange={handleChange} className="w-full border rounded p-2 text-black" />
         </div>
         <button type="submit" className={`bg-blue-600 text-white px-4 py-2 rounded ${loading ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={loading}>
           {loading ? 'Adding...' : 'Add Salary'}

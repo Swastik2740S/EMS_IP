@@ -95,14 +95,14 @@ export default function LeaveList() {
             ) : (
               leaves.map(leave => (
                 <tr key={leave.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 whitespace-nowrap text-blue-700">
                     {leave.Employee?.firstName} {leave.Employee?.lastName}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">{leave.type}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{leave.start_date}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{leave.end_date}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{leave.status}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 whitespace-nowrap text-black">{leave.type}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-black">{leave.start_date}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-black">{leave.end_date}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-black">{leave.status}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-black">
                     {role !== 'employee' && leave.status === 'pending' && (
                       <>
                         <button onClick={() => handleApprove(leave.id, 'approved')}
