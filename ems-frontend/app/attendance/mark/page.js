@@ -32,24 +32,34 @@ export default function MarkAttendance() {
 
   return (
     <div className="p-8 max-w-lg mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Mark Attendance</h1>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <h1 className="text-2xl font-bold text-gray-800">Mark Attendance</h1>
         <Link href="/attendance" className="text-blue-600 hover:text-blue-800">
           Back to Attendance
         </Link>
       </div>
-      {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
-      {message && <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">{message}</div>}
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+          {error}
+        </div>
+      )}
+      {message && (
+        <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-4">
+          {message}
+        </div>
+      )}
+
       <div className="flex space-x-4">
         <button
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
           onClick={() => handleMark('check_in')}
           disabled={loading}
         >
           {loading ? 'Marking...' : 'Check In'}
         </button>
         <button
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
           onClick={() => handleMark('check_out')}
           disabled={loading}
         >

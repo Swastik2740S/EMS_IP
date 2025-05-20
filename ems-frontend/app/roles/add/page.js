@@ -4,11 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function AddRole() {
-  const [form, setForm] = useState({
-    title: '',
-    description: '',
-    salaryGrade: ''
-  });
+  const [form, setForm] = useState({ title: '', description: '', salaryGrade: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -22,21 +18,17 @@ export default function AddRole() {
     e.preventDefault();
     setLoading(true);
     setError('');
-
-    // Form validation
     if (!form.title.trim()) {
       setError('Role title is required');
       setLoading(false);
       return;
     }
-
     try {
       const token = localStorage.getItem('token');
       if (!token) {
         router.push('/login');
         return;
       }
-
       const response = await fetch('http://localhost:5000/api/roles', {
         method: 'POST',
         headers: {
@@ -45,12 +37,10 @@ export default function AddRole() {
         },
         body: JSON.stringify(form)
       });
-
       if (!response.ok) {
         const data = await response.json();
         throw new Error(data.error || 'Failed to create role');
       }
-
       router.push('/roles');
     } catch (err) {
       setError(err.message || 'An error occurred');
@@ -61,26 +51,35 @@ export default function AddRole() {
 
   return (
     <div className="p-8 max-w-lg mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Add Role</h1>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800 mb-1">Add Role</h1>
+          <p className="text-gray-600">Create a new role for your organization</p>
+        </div>
         <Link
           href="/roles"
-          className="text-blue-600 hover:text-blue-800"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
         >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+          </svg>
           Back to Roles
         </Link>
       </div>
 
       {error && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-          {error}
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+          </svg>
+          <span>{error}</span>
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
-            Role Title*
+          <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="title">
+            Role Title *
           </label>
           <input
             id="title"
@@ -88,14 +87,13 @@ export default function AddRole() {
             type="text"
             value={form.title}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             placeholder="Enter role title"
             required
           />
         </div>
-
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+          <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="description">
             Description
           </label>
           <textarea
@@ -103,14 +101,13 @@ export default function AddRole() {
             name="description"
             value={form.description}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             placeholder="Enter role description"
             rows="4"
           />
         </div>
-
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="salaryGrade">
+          <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="salaryGrade">
             Salary Grade
           </label>
           <input
@@ -119,25 +116,36 @@ export default function AddRole() {
             type="text"
             value={form.salaryGrade}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             placeholder="E.g., G5, M3, etc."
           />
         </div>
-
-        <div className="flex items-center justify-between">
-          <button
-            type="submit"
-            className={`bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
-            disabled={loading}
-          >
-            {loading ? 'Creating...' : 'Create Role'}
-          </button>
+        <div className="flex flex-col-reverse md:flex-row gap-3 justify-end mt-8">
           <button
             type="button"
             onClick={() => router.push('/roles')}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="px-5 py-2.5 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-gray-200 transition-all"
           >
             Cancel
+          </button>
+          <button
+            type="submit"
+            disabled={loading}
+            className={`px-5 py-2.5 text-white bg-gray-900 rounded-lg hover:bg-gray-800 focus:ring-2 focus:ring-gray-300 transition-all flex items-center justify-center gap-2 ${
+              loading ? 'opacity-70 cursor-not-allowed' : ''
+            }`}
+          >
+            {loading ? (
+              <>
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Creating...
+              </>
+            ) : (
+              'Create Role'
+            )}
           </button>
         </div>
       </form>

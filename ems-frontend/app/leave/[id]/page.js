@@ -18,7 +18,6 @@ export default function ApproveLeaveRequest() {
       router.push('/login');
       return;
     }
-    // Get user role from token
     try {
       const data = JSON.parse(atob(token.split('.')[1]));
       setRole(data.role);
@@ -61,36 +60,36 @@ export default function ApproveLeaveRequest() {
 
   return (
     <div className="p-8 max-w-lg mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Leave Request Details</h1>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <h1 className="text-2xl font-bold text-gray-800">Leave Request Details</h1>
         <Link href="/leave" className="text-blue-600 hover:text-blue-800">
           Back to Leave Requests
         </Link>
       </div>
-      {message && <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">{message}</div>}
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+      {message && <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-4">{message}</div>}
+      <div className="bg-white rounded-xl shadow border border-gray-100 p-6 mb-6">
         <p><span className="font-semibold">Employee:</span> {leave.Employee?.firstName} {leave.Employee?.lastName}</p>
         <p><span className="font-semibold">Type:</span> {leave.type}</p>
         <p><span className="font-semibold">Start Date:</span> {leave.start_date}</p>
         <p><span className="font-semibold">End Date:</span> {leave.end_date}</p>
         <p><span className="font-semibold">Reason:</span> {leave.reason || '-'}</p>
         <p><span className="font-semibold">Status:</span> <span className={
-          leave.status === 'pending' ? 'text-yellow-600' :
-          leave.status === 'approved' ? 'text-green-600' :
-          'text-red-600'
+          leave.status === 'pending' ? 'text-yellow-600 font-semibold' :
+          leave.status === 'approved' ? 'text-green-600 font-semibold' :
+          'text-red-600 font-semibold'
         }>{leave.status}</span></p>
       </div>
       {role !== 'employee' && leave.status === 'pending' && (
         <div className="flex space-x-4">
           <button
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
             onClick={() => handleAction('approved')}
             disabled={loading}
           >
             {loading ? 'Processing...' : 'Approve'}
           </button>
           <button
-            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
             onClick={() => handleAction('rejected')}
             disabled={loading}
           >

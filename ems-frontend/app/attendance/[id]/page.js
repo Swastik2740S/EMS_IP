@@ -49,32 +49,68 @@ export default function EditAttendance() {
 
   return (
     <div className="p-8 max-w-lg mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Edit Attendance</h1>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+        <h1 className="text-2xl font-bold text-gray-800">Edit Attendance</h1>
         <Link href="/attendance" className="text-blue-600 hover:text-blue-800">
           Back to Attendance
         </Link>
       </div>
-      {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Date</label>
-          <input name="date" type="date" value={form.date} onChange={handleChange}
-            className="shadow border rounded w-full py-2 px-3" required />
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+          {error}
         </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Check In</label>
-          <input name="check_in" type="time" value={form.check_in} onChange={handleChange}
-            className="shadow border rounded w-full py-2 px-3" />
+          <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="date">
+            Date
+          </label>
+          <input
+            id="date"
+            name="date"
+            type="date"
+            value={form.date}
+            onChange={handleChange}
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            required
+          />
         </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="check_in">
+            Check In
+          </label>
+          <input
+            id="check_in"
+            name="check_in"
+            type="time"
+            value={form.check_in}
+            onChange={handleChange}
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          />
+        </div>
+
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Check Out</label>
-          <input name="check_out" type="time" value={form.check_out} onChange={handleChange}
-            className="shadow border rounded w-full py-2 px-3" />
+          <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="check_out">
+            Check Out
+          </label>
+          <input
+            id="check_out"
+            name="check_out"
+            type="time"
+            value={form.check_out}
+            onChange={handleChange}
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          />
         </div>
-        <button type="submit"
+
+        <button
+          type="submit"
           className={`bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
-          disabled={loading}>
+          disabled={loading}
+        >
           {loading ? 'Updating...' : 'Update Attendance'}
         </button>
       </form>
