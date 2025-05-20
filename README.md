@@ -148,5 +148,5 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 ## 📧 Contact
 
 For any inquiries or feedback, feel free to reach out:  
-- **Email**: onamverma8@example.com  
+- **Email**: onamverma8@gmail.com  
 - **GitHub**: [Swastik2740S](https://github.com/Swastik2740S)  
