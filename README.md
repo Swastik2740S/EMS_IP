@@ -17,10 +17,10 @@ The **Employee Management System (EMS)** is a web-based application designed to 
 3. **Department Management**  
     - Manage departments and assign employees to departments.  
 
-4. **Attendance & Leave Management (Optional)**  
+4. **Attendance & Leave Management **  
     - Track employee attendance and manage leave requests.  
 
-5. **Salary Management (Optional)**  
+5. **Salary Management **  
     - Manage employee salaries and payment statuses.  
 
 6. **User Management**  
